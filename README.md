@@ -9,12 +9,13 @@ Then, we can try running this ML on the "Real" dataset and see how it performs.
 
 
 ### EEG Dataset
-The provided Training data is shown in Figure 1. The file contains 1,440,000 recordings collected over 57.6 seconds. The recording involves spikes of 5 different classes and a large amount of background noise. To continue working with this data and to reduce any errors caused by noise, filtering is applied.
+The provided Training data is shown in Figure 1. The file contains 1,440,000 recordings collected over 57.6 seconds. The recording involves spikes of 5 different classes and a large amount of background noise. It's impossible to see any trends or patterns in this until we filter the data, so that's going to be our first step. 
 
 ![Raw Data](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Raw_data.png) "Figure 1 - Raw "Training" dataset"
 
 ### Filtering 
-The signal is transformed to the frequency domain with an FFT like so: 
+There is nothing to do in the time-domain, until we remove some noise. To remove noise, let's have a look at the signal in the frequency domain, using Fast Fourier Transforms. 
+In Python, the signal is transformed to the frequency domain with an FFT like so: 
 ```python
 samples = mat['d']
 t = 25000
