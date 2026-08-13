@@ -61,5 +61,6 @@ Each window is aligned to its peak and the waveforms are overlaid, coloured by c
 
 Averaging the aligned waveforms within each class gives a mean template per spike type( Figure X). Each class has a characteristic amplitude and shape.
 
-## Clusters
+## Clusters or KNN? 
+Now we nned to label things up. Two main options are clusters or KNN
 ![Clusters](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Clusters.png)
