@@ -1,5 +1,3 @@
-# Work in Progress! 
-
 ## Introduction 
 This project demonstrates a method of analysing noisy data and sorting it in Python. 
 
