@@ -11,7 +11,10 @@ Then, we can try running this ML on the "Real" dataset and see how it performs.
 ### EEG Dataset
 The provided Training data is shown in Figure 1. The file contains 1,440,000 recordings collected over 57.6 seconds. The recording involves spikes of 5 different classes and a large amount of background noise. It's impossible to see any trends or patterns in this until we filter the data, so that's going to be our first step. 
 
-![Raw Data](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Raw_data.png) "Figure 1 - Raw "Training" dataset"
+![Raw Data](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Raw_data.png) 
+<p align="center">
+<B><i> Figure 1 - Raw "Training" dataset </i></B>
+</p>
 
 ### Filtering 
 There is nothing to do in the time-domain, until we remove some noise. To remove noise, let's have a look at the signal in the frequency domain, using Fast Fourier Transforms. 
@@ -32,10 +35,22 @@ L = np.arange(1, np.floor(n/2),dtype = 'int')
 . Signal power is concentrated below ~1 kHz, while the low-power components spread across the rest of the spectrum are dominated by noise. Keeping only the frequency components whose power exceeds a threshold and reconstructing with an inverse FFT suppresses that noise while leaving the spike waveforms intact. The same 120 ms window after filtering is shown in Figure 4 — the spikes are preserved and the baseline is visibly cleaner.
 
 
-![Power Spectral Density  Plot](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/PSD.png)"Figure 2 - Power Spectral Density"
-![Denoised Data](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Data_Denoised.png)"Figure 3 - Denoised Data"
+![Power Spectral Density  Plot](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/PSD.png)
+<p align="center">
+<B><i> Figure 2 - Power Spectral Density  </i></B>
+</p>
+
+![Denoised Data](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Data_Denoised.png)
+<p align="center">
+<B><i> Figure 3 - Denoised Data </i></B>
+</p>
+
 ### Finding Peaks 
-![Alt text](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Peak_Detection.png)"Figure 4 - Peak Detection"
+![Alt text](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Peak_Detection.png)
+<p align="center">
+<B><i> Figure 4 - Peak Detection </i></B>
+</p>
+
 ### Windowing
 ![Alt text](Gallery/Windows.png?raw=true "Windows")
 
