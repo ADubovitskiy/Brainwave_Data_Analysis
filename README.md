@@ -45,7 +45,7 @@ clean = np.fft.ifft(fhat * mask).real
 <B><i> Figure 2 - Power Spectral Density  </i></B>
 </p>
 
-> [!TIP]
+> [!NOTE]
 > Figure 3 below demonstrates a 120ms snippet of the data before and after we removed the noise. 
 > It is now much easier to work with.
 
@@ -89,18 +89,41 @@ labels  = np.array(labels)
 <B><i> Figure 5 - Aligned spikes </i></B>
 </p>
 
-> [!TIP]
+> [!NOTE]
 > Averaging the aligned waveforms within each class gives a mean template per spike type.
 > Each class has a characteristic amplitude and shape.
 
 ![Data spikes placed into groups](https://github.com/ADubovitskiy/Brainwave_Data_Analysis/blob/main/Gallery/Aligned_Groups.png)
 <p align="center">
-<B><i> Figure 5 - Aligned & Grouped spikes </i></B>
+<B><i> Figure 6 - Aligned & Grouped spikes </i></B>
 </p>
 
 ## Clusters or KNN? 
-The final step is to learn how to tell those spikes apart. 
-![Clusters](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Clusters.png)
+The final step is to learn how to tell those spikes apart. First we compress each waveform with Principal Component Analysis (PCA) - it keeps only the few numbers that describe a spike's shape.
+There are a lot of different classification methods. In this study we will look into Clustering and KNN.
+
+> [!NOTE]
+> It's common to use clustering when the data is unlabelled - the algorithm simply groups the points that sit closest to each other.
+> If the data is labelled (like in our case), it's better to use KNN.
+
+
+To demonstrate the comparison in results, please see the image below. 
+KNN comes out about 21 points more accurate in this particular case (~94% vs ~73%).
+
+![ClustersVSknn](https://github.com/ADubovitskiy/Brainwave_Data_Analysis/blob/main/Gallery/KMeans_vs_KNN.png)
+<p align="center">
+<B><i> Figure 7 - Clusters vs KNN </i></B>
+</p>
+
+Let's run it on a "Real" dataset and see what we get.
 
 ## Real Dataset
+The Real dataset is just a raw signal - we have no idea what's going on in here. If our algorithm works, we should be able to detect the spikes and classify them with the KNN model we trained on the labelled data.
+And this is what we get.
+It detected and classifies 2,324 spikes! 🎉
+
+![ClustersVSknn](https://github.com/ADubovitskiy/Brainwave_Data_Analysis/blob/main/Gallery/Real_Dataset.png)
+<p align="center">
+<B><i> Figure 8 - Results for the real dataset </i></B>
+</p>
 
