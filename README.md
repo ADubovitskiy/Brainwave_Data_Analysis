@@ -15,7 +15,9 @@ The provided Training data is shown in Figure 1. The file contains 1,440,000 rec
 
 ### Filtering 
 There is nothing to do in the time-domain, until we remove some noise. To remove noise, let's have a look at the signal in the frequency domain, using Fast Fourier Transforms. 
-In Python, the signal is transformed to the frequency domain with an FFT like so: 
+
+> [!NOTE]
+>  In Python, the signal is transformed to the frequency domain with an  `numpy fft` function like so: 
 ```python
 samples = mat['d']
 t = 25000
@@ -30,11 +32,10 @@ L = np.arange(1, np.floor(n/2),dtype = 'int')
 . Signal power is concentrated below ~1 kHz, while the low-power components spread across the rest of the spectrum are dominated by noise. Keeping only the frequency components whose power exceeds a threshold and reconstructing with an inverse FFT suppresses that noise while leaving the spike waveforms intact. The same 120 ms window after filtering is shown in Figure 4 — the spikes are preserved and the baseline is visibly cleaner.
 
 
-![Data Snippet](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Data_snippet.png)
-![Power Spectral Density  Plot](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/PSD.png)
-![Denoised Data](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Denoised.png)
+![Power Spectral Density  Plot](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/PSD.png)"Figure 2 - Power Spectral Density"
+![Denoised Data](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Data_Denoised.png)"Figure 3 - Denoised Data"
 ### Finding Peaks 
-![Alt text](Gallery/Peaks.png?raw=true "Peaks")
+![Alt text](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Peak_Detection.png)"Figure 4 - Peak Detection"
 ### Windowing
 ![Alt text](Gallery/Windows.png?raw=true "Windows")
 
@@ -42,7 +43,8 @@ L = np.arange(1, np.floor(n/2),dtype = 'int')
 Each window is aligned to its peak and the waveforms are overlaid, coloured by class (Figure 6). Five distinct shapes emerge — the reason the classes can be told apart.
 ![Alt text](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Data_aligned.png) "Figure X - Aligned spike waveforms"
 
+
 Averaging the aligned waveforms within each class gives a mean template per spike type( Figure X). Each class has a characteristic amplitude and shape.
 
 ## Clusters
-
+![Clusters](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Clusters.png)
