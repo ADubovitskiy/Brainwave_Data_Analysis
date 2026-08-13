@@ -59,8 +59,9 @@ With the clean data, we can now see some distinct signal spikes. However, we wan
 
 ```python
 # Find peaks
-blah blah ablah
-blah blah ablah
+threshold = 4 * np.median(np.abs(spikes)) / 0.6745
+peaks, _  = find_peaks(spikes, height=threshold, distance=int(0.001 * fs))
+print(f'{len(peaks)} spikes detected')  
 ```
 
 ![Alt text](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Peak_Detection.png)
