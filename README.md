@@ -56,9 +56,12 @@ L = np.arange(1, np.floor(n/2),dtype = 'int')
 
 ## Aligned Waveforms
 Each window is aligned to its peak and the waveforms are overlaid, coloured by class (Figure 6). Five distinct shapes emerge — the reason the classes can be told apart.
-![Alt text](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Data_aligned.png) "Figure X - Aligned spike waveforms"
+![Aligned spikes](https://github.com/ADubovitskiy/Spike-Sorting-EEG-Dataset/blob/main/Gallery/Data_aligned.png)
+<p align="center">
+<B><i> Figure X - Aligned spike waveforms </i></B>
+</p>
 
-
+![Data spikes placed into groups](https://github.com/ADubovitskiy/Brainwave_Data_Analysis/blob/main/Gallery/Aligned_Groups.png)
 Averaging the aligned waveforms within each class gives a mean template per spike type( Figure X). Each class has a characteristic amplitude and shape.
 
 ## Clusters or KNN? 
